@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="register-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Buat Akun Baru</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form (ngSubmit)="register()">
+          <!-- Error Message -->
+          <ion-text color="danger" *ngIf="errorMessage">
+            <p><strong>{{ errorMessage }}</strong></p>
+          </ion-text>
+
+          <!-- Success Message -->
+          <ion-text color="success" *ngIf="successMessage">
+            <p><strong>{{ successMessage }}</strong></p>
+          </ion-text>
+
+          <!-- Username Input -->
+          <ion-input
+            [(ngModel)]="username"
+            name="username"
+            type="text"
+            placeholder="Username"
+            label="Username"
+            label-placement="floating"
+            fill="outline"
+            class="ion-margin-bottom"
+          ></ion-input>
+
+          <!-- Password Input -->
+          <ion-input
+            [(ngModel)]="password"
+            name="password"
+            type="password"
+            placeholder="Password (min 6 karakter)"
+            label="Password"
+            label-placement="floating"
+            fill="outline"
+            class="ion-margin-bottom"
+          ></ion-input>
+
+          <!-- Confirm Password Input -->
+          <ion-input
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            placeholder="Konfirmasi Password"
+            label="Konfirmasi Password"
+            label-placement="floating"
+            fill="outline"
+            class="ion-margin-bottom"
+          ></ion-input>
+
+          <!-- Register Button -->
+          <ion-button 
+            expand="block" 
+            type="submit"
+            [disabled]="loading"
+            class="ion-margin-top"
+          >
+            <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
+            <span *ngIf="!loading">Daftar</span>
+          </ion-button>
+        </form>
+
+        <!-- Login Link -->
+        <div class="ion-margin-top ion-text-center">
+          <ion-text>
+            Sudah punya akun? 
+            <a (click)="goToLogin()" style="color: #0d47a1; cursor: pointer;">
+              Login di sini
+            </a>
+          </ion-text>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Sistem Login & Register Terenkripsi</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form (ngSubmit)="login()">
+          <!-- Error Message -->
+          <ion-text color="danger" *ngIf="errorMessage">
+            <p><strong>{{ errorMessage }}</strong></p>
+          </ion-text>
+
+          <!-- Username Input -->
+          <ion-input
+            [(ngModel)]="username"
+            name="username"
+            type="text"
+            placeholder="Username"
+            label="Username"
+            label-placement="floating"
+            fill="outline"
+            class="ion-margin-bottom"
+          ></ion-input>
+
+          <!-- Password Input -->
+          <ion-input
+            [(ngModel)]="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            label="Password"
+            label-placement="floating"
+            fill="outline"
+            class="ion-margin-bottom"
+          ></ion-input>
+
+          <!-- Login Button -->
+          <ion-button 
+            expand="block" 
+            type="submit"
+            [disabled]="loading"
+            class="ion-margin-top"
+          >
+            <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
+            <span *ngIf="!loading">Login</span>
+          </ion-button>
+        </form>
+
+        <!-- Register Link -->
+        <div class="ion-margin-top ion-text-center">
+          <ion-text>
+            Belum punya akun? 
+            <a (click)="goToRegister()" style="color: #0d47a1; cursor: pointer;">
+              Daftar di sini
+            </a>
+          </ion-text>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

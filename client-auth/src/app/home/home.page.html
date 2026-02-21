@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="home-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Selamat Datang! 👋</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text *ngIf="username">
+          <h2>Halo, <strong>{{ username }}</strong>!</h2>
+          <p>Anda berhasil login ke sistem authentication yang aman.</p>
+        </ion-text>
+
+        <div class="info-section ion-margin-top">
+          <h3>✅ Fitur yang Sudah Diimplementasikan:</h3>
+          <ul>
+            <li>✓ Registrasi akun dengan password terenkripsi (Bcrypt)</li>
+            <li>✓ Login dengan verifikasi password</li>
+            <li>✓ JWT Token untuk autentikasi</li>
+            <li>✓ Auth Guard untuk melindungi route</li>
+            <li>✓ Penyimpanan token di Capacitor Preferences</li>
+            <li>✓ Logout untuk menghapus session</li>
+          </ul>
+        </div>
+
+        <div class="info-section ion-margin-top">
+          <h3>🔒 Keamanan:</h3>
+          <ul>
+            <li>Password di-hash dengan Bcrypt 10 rounds</li>
+            <li>Token JWT berlaku 1 jam</li>
+            <li>Database MySQL terenkripsi</li>
+            <li>CORS enabled untuk komunikasi aman</li>
+          </ul>
+        </div>
+
+        <ion-button 
+          expand="block" 
+          color="danger"
+          (click)="logout()"
+          class="ion-margin-top"
+        >
+          Logout
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
